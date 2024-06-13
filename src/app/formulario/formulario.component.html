@@ -1,0 +1,45 @@
+<form [formGroup]="formAluno" (ngSubmit)="enviarFormulario()">
+  <label>Digite o nome:</label>
+  <input 
+    type="text" 
+    formControlName="nome" 
+    placeholder="Digite o nome do aluno"
+    [(ngModel)]="nome" 
+    [class.valid]="formAluno.controls['nome'].valid"
+    [class.valid]="formAluno.controls['nome'].invalid && 
+    (formAluno.controls['nome'].touched || formAluno.controls['nome'].dirty)"
+  >
+  <div 
+    *ngIf="formAluno.controls['nome'].invalid &&
+    (formAluno.controls['nome'].touched || formAluno.controls['nome'].dirty)"
+  >
+    <small 
+      class="error-message"
+      *ngIf="formAluno.controls['nome'].hasError('minlength')"
+    >
+      Esse campo precisa ter no minímo 4 caracteres
+    </small>
+    <small 
+      class="error-message"
+      *ngIf="formAluno.controls['nome'].hasError('required')"
+    >
+      Esse campo precisa ser preenchido
+    </small>
+
+  </div>
+  <label>Digite a primeira nota do aluno:</label>
+  <input 
+    type="number"
+    
+    formControlName="nota1"
+    [(ngModel)]="nota1" 
+  >
+  <label>Digite a segunda nota do aluno:</label>
+  <input 
+    type="number" 
+    formControlName="nota2"
+    [(ngModel)]="nota2" 
+  >
+  <button [disabled]="formAluno.invalid"  class="btn btn-primary">adicionar </button>
+  
+</form>

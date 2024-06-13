@@ -1,0 +1,20 @@
+div{
+    padding-top: 50px;
+    padding-left:100px;
+    padding-bottom: 20px;
+}
+table {
+   
+    width: 90%;
+    color: #03e9f4;
+    background-color: #202021;
+    bottom: 10px;
+   
+   
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
